@@ -5,7 +5,6 @@
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-     <!-- Online Test Pad Test Widget (#142524)-->
      <div id="otp_wgt_hrdjp2b5eqfdy"></div>
     <script type="text/javascript">
         var otp_wjs_dt = (new Date).getTime();
