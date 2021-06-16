@@ -130,4 +130,16 @@ class SiteController extends Controller
     {
         return $this->render('tests');
     }
+
+    public function actionModule4()
+    {
+        return $this->render('module4');
+    }
+
+    public function actionAdmin()
+    {
+        return $this->render('admin');
+    }
+
+
 }

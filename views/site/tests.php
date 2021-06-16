@@ -2,9 +2,12 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Тест';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-tests">
+
+<div class="container marketing">
 
      <div id="otp_wgt_hrdjp2b5eqfdy"></div>
     <script type="text/javascript">
@@ -22,5 +25,7 @@ $this->title = 'My Yii Application';
             d.getElementsByTagName("head")[0].appendChild(s);
         })(this, this.document, "otp_widget_callbacks");
     </script>
+
+    </div>
     
 </div>
