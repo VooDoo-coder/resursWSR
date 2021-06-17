@@ -1,6 +1,7 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $item yii\models\Moduls */
 
 $this->title = 'Главная';
 ?>
@@ -95,35 +96,22 @@ $this->title = 'Главная';
 <hr class="featurette-divider">
 
 <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <img class="img_m" src="img/m1.png" alt="">
-          <h2>Модуль 1</h2>
-          <p>Корпоративный дизайн</p>
-          <?= \yii\helpers\Html::a('<button class="btn btn-default" type="button">Материалы</button>', [''])?>
-        </div>
-        <div class="col-md-4">
-          <img class="img_m" src="img/m2.png" alt=""> 
-          <h2>Модуль 2</h2>
-          <p>Информационный дизайн</p>
-          <?= \yii\helpers\Html::a('<button class="btn btn-default" type="button">Материалы</button>', [''])?>
-       </div>
-        <div class="col-md-4">
-          <img class="img_m" src="img/m3.png" alt="">
-          <h2>Модуль 3</h2>
-          <p>Многостраничный дизайн</p>
-          <?= \yii\helpers\Html::a('<button class="btn btn-default" type="button">Материалы</button>', [''])?>
-        </div>
-        <div class="col-md-4">
-          <img class="img_m" src="img/m4.png" alt="">
-          <h2>Модуль 4</h2>
-          <p>Дизайн упаковки</p>
-          <?= \yii\helpers\Html::a('<button class="btn btn-default" type="button">Материалы</button>', ['/site/module4'])?>
-          <!-- <p><a class="btn btn-default" href="http://resurswsr/web/index.php?r=site%2Fmodule4" role="button">View details &raquo;</a></p> -->
-        </div>
-      </div>
-    </div> <!-- /container -->
+  <div class="row">
+
+  <? foreach ($model as $item): ?>
+
+    <div class="col-md-4">
+      <img class="img_m" src="<?= $item->img?>" alt="">
+      <h2><?= $item->name?></h2>
+      <p><?= $item->alt_name?></p>
+      <?= \yii\helpers\Html::a('<button class="btn btn-default" type="button">Материалы</button>', ['/site/module', 'id' => $item->id])?>
+    </div>
+
+  <? endforeach ?>
+
+  </div>
+</div>
+     
  
     <hr class="featurette-divider">
 

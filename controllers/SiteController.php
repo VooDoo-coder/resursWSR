@@ -9,6 +9,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\moduls;
+
 
 class SiteController extends Controller
 {
@@ -61,7 +63,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = Moduls::find()->all();
+        return $this->render('index', [
+            'model' => $model,
+        ]);
+   
     }
 
     /**
@@ -115,6 +121,7 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+    
 
     /**
      * Displays about page.
@@ -131,9 +138,10 @@ class SiteController extends Controller
         return $this->render('tests');
     }
 
-    public function actionModule4()
+    public function actionModule($id)
     {
-        return $this->render('module4');
+        $model = Moduls::find()->where(['id'=>$id])->one();
+        return $this->render('module', ['model' => $model,]);
     }
 
     public function actionAdmin()

@@ -21,13 +21,9 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/style.css',
-        'css/site.css',
         'css/carousel.css',
     ];
     public $js = [
-    ];
-    public $img = [
-        'img/wsrlogo.eps',
     ];
     public $depends = [
         'yii\web\YiiAsset',
