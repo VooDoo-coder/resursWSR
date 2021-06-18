@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use yii\helpers\VarDumper;
+use app\models\category;
 
 /**
  * ModulsController implements the CRUD actions for Moduls model.

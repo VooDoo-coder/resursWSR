@@ -7,9 +7,13 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
+use yii\helpers\VarDumper;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\moduls;
+use app\models\category;
+use app\models\materials;
+use yii\web\UploadedFile;
 
 
 class SiteController extends Controller
@@ -141,7 +145,11 @@ class SiteController extends Controller
     public function actionModule($id)
     {
         $model = Moduls::find()->where(['id'=>$id])->one();
-        return $this->render('module', ['model' => $model,]);
+        $item = Category::find()->all();
+        return $this->render('module', [
+            'model' => $model,
+            'item' => $item,
+        ]);
     }
 
     public function actionAdmin()
@@ -149,5 +157,15 @@ class SiteController extends Controller
         return $this->render('admin');
     }
 
-
+    public function actionCategory($id)
+    {
+        $model = Category::find()->where(['id'=>$id])->one();
+        $item = Materials::find()->all();
+        header('Content-Type:'.pathinfo($item->file, PATHINFO_EXTENSION));
+        header('Content-Disposition: attachment: filename='.$item->file);
+        return $this->render('Category',[
+            'model' => $model,
+            'item' => $item,
+        ]);
+    }
 }
